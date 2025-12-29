@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: client-service
+  config:
+    import: "optional:configserver:http://localhost:8888"
+  cloud:
+    config:
+      fail-fast: false
+
+# Fallback configuration if Config Server is not available
+app:
+  environment: "Local"
+  message: "Fallback configuration - Config Server not available"

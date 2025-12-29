@@ -1,0 +1,22 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://${user.home}/Workspace/hstran09/scc/config-repo
+          # For Windows, you might need: file:///${user.home}/scc/config-repo
+          # Or use absolute path: file:///Users/yourusername/scc/config-repo
+          default-label: develop
+          clone-on-start: true
+          refresh-rate: 0 # Disables caching for development
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
